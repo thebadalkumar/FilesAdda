@@ -3,6 +3,15 @@ function getFileInfo() {
     fname = x.files[0].name;
     size = x.files[0].size;
     type = x.files[0].type;
+    if (size > 1073741824) { // 1 GB limit
+        Swal.fire(
+            'Info!',
+            `File ${fname} of type ${type} is too big`,
+            'success'
+        )
+        document.getElementById('file-upload-frm').reset();
+        return false;
+    }
     $("#id_title").val(fname.split(".")[0]);
     $('#fileName').html("File Name: " + fname)
     $('#fileSize').html("File Size: " + size)
