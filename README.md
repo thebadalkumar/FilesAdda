@@ -2,6 +2,9 @@
 
 ## Setup
 
+** PYTHON MUST BE INSTALLED ON MACHINE TO RUN THIS PROJECT**
+Download Python from [https://www.python.org/downloads/](https://www.python.org/downloads/) and add it's path to Environment Variables ([Windows](https://www.educative.io/answers/how-to-add-python-to-path-variable-in-windows)).
+
 The first thing to do is to clone the repository:
 
 ```sh
