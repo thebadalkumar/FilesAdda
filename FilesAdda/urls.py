@@ -22,6 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/',include('authApp.urls')),
-    path('home/',include('uploaderApp.urls')),
+    path('',include('uploaderApp.urls')),
     path('<str:url>', viewFile, name="view-file"),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

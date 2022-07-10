@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-dg0%im%f%8%5etk@sq*wetc@gp17ie55)-#^)12#+rq33k8e9!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -37,12 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'widget_tweaks',
     'authApp',
     'uploaderApp',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -121,7 +123,7 @@ FILE_UPLOAD_MAX_MEMORY_SIZE = 1073741824 # 1 GB LIMIT
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_ROOT  = BASE_DIR / 'media'
 
 MEDIA_URL = '/media/'
@@ -129,3 +131,10 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTHENTICATION_BACKENDS = (
+    'authApp.authentication.EmailBackend',
+)
+
+LOGOUT_REDIRECT_URL = "/accounts/login"
+LOGIN_REDIRECT_URL = "/"

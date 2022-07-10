@@ -1,5 +1,4 @@
-{% extends 'base.html' %} {% load static %} {% block css %}
-<link href="{% static 'css/style.css' %}" rel="stylesheet"> {% endblock %} {% block content %}
+{% extends 'base.html' %} {% load static %}{% block title %}Home{% endblock %}{% block content %}
 <form action="" method="POST" id="file-upload-frm">
     {% csrf_token %}
     <div class="form">
@@ -46,7 +45,7 @@
 
         $.ajax({
             type: 'POST',
-            url: '/home/',
+            url: '/',
             data: formData,
             dataType: 'json',
             beforeSend: function() {

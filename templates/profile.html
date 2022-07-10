@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% load static %} {% load widget_tweaks %}{% block title %}Profile{% endblock %}{% block content %}
+<div class="row">
+    <form class="row row-cols-lg-auto g-3 align-items-center" method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="col-12">
+            <label>Upload New Profile Picture</label>
+        </div>
+        <div class="col-12">
+            <div class="input-group">{% render_field form.avatar|attr:"required" class="form-control" %}
+            </div>
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

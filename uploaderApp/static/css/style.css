@@ -59,3 +59,34 @@
         margin-top: 10px;
     }
 }
+
+.file-data {
+    padding: 15px;
+    /* height: 80px; */
+    border: 2px #13131314 groove;
+}
+
+.div-action {
+    font-size: 1.3rem;
+    text-align: end;
+}
+
+.div-action span {
+    margin-left: 10px;
+}
+
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.logout {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .file-data,
+    .div-action {
+        text-align: center;
+    }
+}
