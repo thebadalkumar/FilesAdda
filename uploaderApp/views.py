@@ -18,9 +18,15 @@ class FileUploader(View):
             return JsonResponse({"data":"Method Not Allowed Here"})
         if request.method=='POST':
             form = UploadForm(request.POST, request.FILES)
+            title = request.POST.get("title",None)
             if form.is_valid():
                 frm = form.save(commit=False)
                 frm.user = request.user
+                if title:
+                    ext = ""
+                    if "." in frm.file.url:
+                        ext = "."+frm.file.url.split(".")[-1]
+                    frm.file.name = title+ext
                 frm.save()
                 return JsonResponse({'data':'Data uploaded'})
             else:
