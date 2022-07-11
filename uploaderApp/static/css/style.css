@@ -84,10 +84,6 @@
     margin-right: 0px;
 }
 
-.logout {
-    cursor: pointer;
-}
-
 @media only screen and (max-width: 768px) {
     .file-data,
     .div-action {
@@ -97,4 +93,8 @@
 
 .row.file-data.mt-3:hover {
     border: 3px #ebedf099 groove;
+}
+
+a {
+    cursor: pointer;
 }

@@ -83,7 +83,7 @@ $(document).on(" click ", ".remove-file", function() {
                         'Your file has been deleted.',
                         'success'
                     )
-                    me.parent().parent().remove();
+                    me.parent().parent().parent().parent().remove();
                 },
                 error: function(error) {
                     console.log(error);

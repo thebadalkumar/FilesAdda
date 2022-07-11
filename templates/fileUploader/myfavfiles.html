@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% load static %} {% load get_mime %}{% block title %}Fav Files{% endblock %}{% block content %}
+{% extends 'base.html' %} {% load static %}{% load get_mime %} {% block title %}My Files{% endblock %}{% block content %}
 <div class="show-file row">
     {% for file in files %}
     <div class="row file-data mt-3" title="{{file.desc}}">
@@ -10,8 +10,17 @@
                 <span class="text-secondary">{{file.date|date:'Y-m-d H:i'}}</span>
             </div>
         </div>
-        <div class="col-md-3 align-self-center div-action"><span data-url="{{file.file.url}}" class="fa fa-download text-primary open-file"></span> <span data-id="{{file.id}}" class="fa fa-trash text-danger remove-file"></span> <span data-url="{{file.url}}" class="fa fa-link text-info share-file"></span>
-            <span data-id="{{file.id}}" class="fa {% if file.is_fav %}fa-heart{% else %}fa-heart-o{% endif%} text-danger make-favs"></span>
+        <div class="col-md-3 align-self-center div-action"><span data-id="{{file.id}}" class="fa {% if file.is_fav %}fa-heart{% else %}fa-heart-o{% endif%} text-danger make-favs"></span>
+            <a href="#" class="link-dark text-decoration-none fa fa-ellipsis-v ms-3" data-bs-toggle="dropdown" aria-expanded="false">
+            </a>
+            <ul class="dropdown-menu text-small">
+                <li><a data-url="{{file.file.url}}" class="dropdown-item open-file"><span class="fa fa-download"></span> Download</a></li>
+                <li><a data-url="{{file.url}}" class="dropdown-item share-file"><span class="fa fa-link"></span> Share</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a data-id="{{file.id}}" class="dropdown-item remove-file text-danger"><span class="fa fa-trash"></span> Delete</a></li>
+            </ul>
         </div>
     </div>
     {% empty %}
