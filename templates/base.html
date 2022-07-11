@@ -19,10 +19,10 @@
                     <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Google_Drive_logo.png" width="40" height="32" role="img"> </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="/" class="nav-link px-2 link-dark{% if request.resolver_match.url_name == "file-uploader" %} disabled{% endif %}">Home</a></li>
-                    <li><a href="{% url 'file-view' %}" class="nav-link px-2 link-dark{% if request.resolver_match.url_name == "file-view" %} disabled{% endif %}">My Files</a></li>
-                    <li><a href="{% url 'fav-file-view' %}" class="nav-link px-2 link-dark{% if request.resolver_match.url_name == "fav-file-view" %} disabled{% endif %}">Favorites</a></li>
-                    <li><a href="{% url 'trash' %}" class="nav-link px-2 link-dark{% if request.resolver_match.url_name == "trash" %} disabled{% endif %}">Trash</a></li>
+                    <li><a href="/" class="nav-link px-2 link-dark{% if request.resolver_match.url_name == " file-uploader " %} disabled{% endif %}">Home</a></li>
+                    <li><a href="{% url 'file-view' %}" class="nav-link px-2 link-dark{% if request.resolver_match.url_name == " file-view " %} disabled{% endif %}">My Files</a></li>
+                    <li><a href="{% url 'fav-file-view' %}" class="nav-link px-2 link-dark{% if request.resolver_match.url_name == " fav-file-view " %} disabled{% endif %}">Favorites</a></li>
+                    <li><a href="{% url 'trash' %}" class="nav-link px-2 link-dark{% if request.resolver_match.url_name == " trash " %} disabled{% endif %}">Trash</a></li>
                 </ul>
                 <div class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 text-center">
                     Welcome, <strong>{{request.user|capfirst}}</strong>
@@ -49,7 +49,7 @@
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top mt-auto" style="padding-bottom:0px !important">
         <div class="container">
             <div class="col-md-4 d-flex align-items-center">
-                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                <a href="/" class="me-2 mb-md-0 text-muted text-decoration-none lh-1">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Google_Drive_logo.png" width="35" height="30" role="img">
                 </a>
                 <a href="https://thebadalkumar.github.io/" class="text-muted text-decoration-none" target="_blank">thebadalkumar</a>
