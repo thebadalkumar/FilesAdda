@@ -54,6 +54,10 @@
     display: none;
 }
 
+.show-file img {
+    pointer-events: none;
+}
+
 @media only screen and (max-width: 768px) {
     .p-bar {
         margin-top: 10px;
@@ -89,4 +93,8 @@
     .div-action {
         text-align: center;
     }
+}
+
+.row.file-data.mt-3:hover {
+    border: 3px #ebedf099 groove;
 }
