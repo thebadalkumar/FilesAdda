@@ -2,7 +2,8 @@
 
 ## Setup
 
-** PYTHON MUST BE INSTALLED ON MACHINE TO RUN THIS PROJECT**
+**PYTHON MUST BE INSTALLED ON MACHINE TO RUN THIS PROJECT**
+
 Download Python from [https://www.python.org/downloads/](https://www.python.org/downloads/) and add it's path to Environment Variables ([Windows](https://www.educative.io/answers/how-to-add-python-to-path-variable-in-windows)).
 
 The first thing to do is to clone the repository:
@@ -40,7 +41,7 @@ Once `pip` has finished downloading the dependencies:
 Migrate the database
 
 ```sh
-$ python manage.py migrate
+(env)$ python manage.py migrate
 ```
 and lastly run the server
 ```sh
