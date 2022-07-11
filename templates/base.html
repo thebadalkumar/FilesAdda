@@ -5,6 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="icon" type="image/x-svg" href="{% static 'images/logo.svg' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{% static 'css/style.css' %}" rel="stylesheet"> {% block css %} {% endblock %}
@@ -16,13 +17,13 @@
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Google_Drive_logo.png" width="40" height="32" role="img"> </a>
+                    <img src="{% static 'images/logo.svg' %}" width="40" height="32" role="img"> </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="/" class="nav-link px-2 link-dark{% if request.resolver_match.url_name == " file-uploader " %} disabled{% endif %}">Home</a></li>
-                    <li><a href="{% url 'file-view' %}" class="nav-link px-2 link-dark{% if request.resolver_match.url_name == " file-view " %} disabled{% endif %}">My Files</a></li>
-                    <li><a href="{% url 'fav-file-view' %}" class="nav-link px-2 link-dark{% if request.resolver_match.url_name == " fav-file-view " %} disabled{% endif %}">Favorites</a></li>
-                    <li><a href="{% url 'trash' %}" class="nav-link px-2 link-dark{% if request.resolver_match.url_name == " trash " %} disabled{% endif %}">Trash</a></li>
+                    <li><a href="/" class="nav-link px-2 link-dark{% if request.resolver_match.url_name == "file-uploader" %} text-primary fw-bold{% endif %}">Home</a></li>
+                    <li><a href="{% url 'file-view' %}" class="nav-link px-2 link-dark{% if request.resolver_match.url_name == "file-view" %} text-primary fw-bold{% endif %}">My Files</a></li>
+                    <li><a href="{% url 'fav-file-view' %}" class="nav-link px-2 link-dark{% if request.resolver_match.url_name == "fav-file-view" %} text-primary fw-bold{% endif %}">Favorites</a></li>
+                    <li><a href="{% url 'trash' %}" class="nav-link px-2 link-dark{% if request.resolver_match.url_name == "trash" %} text-primary fw-bold{% endif %}">Trash</a></li>
                 </ul>
                 <div class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 text-center">
                     Welcome, <strong>{{request.user|capfirst}}</strong>
@@ -50,7 +51,7 @@
         <div class="container">
             <div class="col-md-4 d-flex align-items-center">
                 <a href="/" class="me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Google_Drive_logo.png" width="35" height="30" role="img">
+                    <img src="{% static 'images/logo.svg' %}" width="35" height="30" role="img">
                 </a>
                 <a href="https://thebadalkumar.github.io/" class="text-muted text-decoration-none" target="_blank">thebadalkumar</a>
             </div>
