@@ -10,7 +10,7 @@
                 <span class="text-secondary">{{file.date|date:'Y-m-d H:i'}}</span>
             </div>
         </div>
-        <div class="col-md-3 align-self-center div-action"><span data-url="{{file.file.url}}" class="fa fa-eye text-primary open-file"></span> <span data-id="{{file.id}}" class="fa fa-trash text-danger remove-file"></span> <span data-url="{{file.url}}" class="fa fa-link text-info share-file"></span>
+        <div class="col-md-3 align-self-center div-action"><span data-url="{{file.file.url}}" class="fa fa-download text-primary open-file"></span> <span data-id="{{file.id}}" class="fa fa-trash text-danger remove-file"></span> <span data-url="{{file.url}}" class="fa fa-link text-info share-file"></span>
             <span data-id="{{file.id}}" class="fa {% if file.is_fav %}fa-heart{% else %}fa-heart-o{% endif%} text-danger make-fav"></span>
         </div>
     </div>
