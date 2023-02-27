@@ -1,0 +1,86 @@
+{% extends 'base.html' %} {% load static %}{% block title %}Home{% endblock %}{% block content %}
+<form action="" method="POST" id="file-upload-frm">
+    {% csrf_token %}
+    <div class="form">
+        {{form.file}}
+        <div>
+            <img src="{% static 'images/upload.png' %}" alt="upload" width="7%" class="mx-2"> Upload your files here or
+            <button class="btn bg-color-dblue btn-primary px-4 py-3">Browse</button></div>
+    </div>
+    <div class="row mt-5">
+        <div class="col">
+            {{form.title}}
+        </div>
+        <div class="col">
+            {{form.desc}}
+        </div>
+    </div>
+    <div class="row mt-2">
+        <span id="fileName" class="text-info"></span>
+        <span id="fileSize" class="text-info"></span>
+        <span id="fileType" class="text-info"></span>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-1 col-sm-12">
+            <input type="submit" value="Upload" class="btn btn-primary">
+        </div>
+        <div class="col-md-11 col-sm-12 p-bar hide-me" id="file-pb"></div>
+    </div>
+</form>
+{% endblock %} {% block js %}
+<script>
+    const uploadForm = document.getElementById('file-upload-frm');
+    const input_file = document.getElementById('id_file');
+    const progress_bar = document.getElementById('file-pb');
+
+    $("#file-upload-frm").submit(function(e) {
+        e.preventDefault();
+        $form = $(this)
+        var formData = new FormData(this);
+        const media_data = input_file.files[0];
+        if (media_data != null) {
+            console.log(media_data);
+            progress_bar.classList.remove("hide-me");
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: '/',
+            data: formData,
+            dataType: 'json',
+            beforeSend: function() {
+
+            },
+            xhr: function() {
+                const xhr = new window.XMLHttpRequest();
+                xhr.upload.addEventListener('progress', e => {
+                    if (e.lengthComputable) {
+                        const percentProgress = (e.loaded / e.total) * 100;
+                        console.log(percentProgress);
+                        progress_bar.innerHTML = `<div class="progress-bar progress-bar-striped bg-success" 
+                    role="progressbar" style="width: ${percentProgress}%" aria-valuenow="${percentProgress}" aria-valuemin="0" 
+                    aria-valuemax="100">${percentProgress}</div>`
+                    }
+                });
+                return xhr
+            },
+            success: function(response) {
+                console.log(response);
+                uploadForm.reset()
+                window.setTimeout(function() {
+                    $("#fileName").addClass('hide-me')
+                    $("#fileSize").addClass('hide-me')
+                    $("#fileType").addClass('hide-me')
+                    progress_bar.classList.add('hide-me')
+                }, 2000)
+            },
+            error: function(err) {
+                console.log(err);
+            },
+            cache: false,
+            contentType: false,
+            processData: false,
+        });
+    });
+</script>
+{% endblock %}

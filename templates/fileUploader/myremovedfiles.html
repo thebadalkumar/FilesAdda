@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% load static %} {% load get_mime %}{% block title %}Deleted Files{% endblock %}{% block content %}
+<div class="show-file row">
+    {% for file in files %}
+    <div class="row file-data mt-3" title="{{file.desc}}">
+        <div class="col-md-2 align-self-center"><img src="/static/images/{{file.css_class}}.png" height="40" width="40"></div>
+        <div class="col-md-7 align-self-center">
+            <div class="">
+                <h4>{{file}}</h4>
+                <span>{{file.file.size|filesizeformat}}</span> |
+                <span class="text-secondary">{{file.date|date:'Y-m-d H:i'}}</span>
+            </div>
+        </div>
+        <div class="col-md-3 align-self-center div-action"><span data-id="{{file.id}}" class="fa fa-trash text-danger delete-file"></span> <span data-id="{{file.id}}" class="fa fa-undo text-info restore-file"></span>
+        </div>
+    </div>
+    {% empty %}
+    <h2>No Files Here!!</h2>
+    {% endfor %}
+</div>
+{% endblock %}

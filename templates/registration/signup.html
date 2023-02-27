@@ -1,0 +1,59 @@
+{% extends 'registration/base.html' %} {% load widget_tweaks %} {% block title %}Registration{% endblock %}{% block content %}
+<div class="card shadow-lg">
+    <div class="card-body p-5">
+        <h6 class="card-title mb-4">
+            {% if form.errors %} {% for field in form %} {% for error in field.errors %}
+            <div class="alert alert-danger fade show" role="alert">
+                <strong>{{error|escape}}</strong>
+            </div>
+            {% endfor %} {% endfor %} {% for error in form.non_field_errors %}
+            <div class="alert alert-danger fade show" role="alert">
+                <strong>{{error|escape}}</strong>
+            </div>
+            {% endfor %} {% endif %}
+        </h6>
+        <h1 class="fs-4 card-title fw-bold mb-4">Register</h1>
+        <form method="POST" class="needs-validation" novalidate="" autocomplete="off">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="mb-2 text-muted" for="name">Username</label> {% render_field form.username|attr:"autofocus" class="form-control" %}
+                <div class="invalid-feedback">
+                    Username is required
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="mb-2 text-muted" for="email">E-Mail Address</label> {% render_field form.email class="form-control" %}
+                <div class="invalid-feedback">
+                    Email is invalid
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="mb-2 text-muted" for="password">Password</label> {% render_field form.password1 class="form-control" %}
+                <div class="invalid-feedback">
+                    Password is required
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="mb-2 text-muted" for="password">Confirm Password</label> {% render_field form.password2 class="form-control" %}
+                <div class="invalid-feedback">
+                    Confirm Password is required
+                </div>
+            </div>
+
+            <div class="align-items-center d-flex">
+                <button type="submit" class="btn btn-primary ms-auto">
+										Register	
+									</button>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer py-3 border-0">
+        <div class="text-center">
+            Already have an account? <a href="{% url 'login' %}" class="text-dark">Login</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

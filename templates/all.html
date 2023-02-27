@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% load static %}{% load get_mime %} {% block title %}All Files{% endblock %}{% block content %}
+<div class="show-file row">
+    {% for file in files %}
+    <div class="row file-data mt-3" title="{{file.desc}}">
+        <div class="col-md-2 align-self-center"><img src="/static/images/{{file.css_class}}.png" height="30" width="30"></div>
+        <div class="col-md-7 align-self-center">
+            <h4 class="filename">{{file}}</h4>
+            <div class="desc">
+                <span>{{file.file.size|filesizeformat}}</span> |
+                <span>Uploaded By <b>{{file.user}}</b></span> |
+                <span class="text-secondary">{{file.date|date:'Y-m-d H:i'}}</span>
+            </div>
+        </div>
+        <div class="col-md-3 align-self-center div-action">
+            <a href="#" class="link-dark text-decoration-none fa fa-ellipsis-v ms-3" data-bs-toggle="dropdown" aria-expanded="false">
+            </a>
+            <ul class="dropdown-menu text-small">
+                <li><a data-url="{{file.file.url}}" class="dropdown-item open-file"><span class="fa fa-download"></span> Download</a></li>
+            </ul>
+        </div>
+    </div>
+    {% empty %}
+    <h2>No Files Here!!</h2>
+    {% endfor %}
+</div>
+{% endblock %}
