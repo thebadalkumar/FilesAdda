@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'FilesAdda.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ('DATABASE_URL'), conn_max_age=600),
+    'default': dj_database_url.parse('postgres://badal:SqneChK1QrH9py4FjpzCxNQin1KJPRT0@dpg-chfshtak728sd6i09crg-a/bciit', conn_max_age=600),
 }
 
 # Password validation
