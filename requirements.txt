@@ -6,3 +6,5 @@ sqlparse==0.4.2
 tzdata==2022.1
 whitenoise==6.2.0
 gunicorn
+psycopg2-binary==2.9.5
+dj-database-url==1.2.0
