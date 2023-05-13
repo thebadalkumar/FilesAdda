@@ -92,9 +92,8 @@ WSGI_APPLICATION = 'FilesAdda.wsgi.application'
 # }
 
 DATABASE_URL = os.getenv('DATABASE_URL')
-DATABASES = {
-    'default': dj_database_url.config(),
-}
+
+DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
